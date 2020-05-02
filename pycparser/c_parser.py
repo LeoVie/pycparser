@@ -1199,6 +1199,8 @@ class CParser(PLYParser):
     def p_pointer(self, p):
         """ pointer : TIMES type_qualifier_list_opt
                     | TIMES type_qualifier_list_opt pointer
+                    | AND type_qualifier_list_opt
+                    | AND type_qualifier_list_opt pointer
         """
         coord = self._token_coord(p, 1)
         # Pointer decls nest from inside out. This is important when different
